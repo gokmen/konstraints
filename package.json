@@ -1,0 +1,29 @@
+{
+  "name": "konstraints",
+  "version": "0.1.0",
+  "description": "Constraints checker for given object and rules along with it.",
+  "main": "src/konstraints.coffee",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/gokmen/konstraints"
+  },
+  "keywords": [
+    "typecheck",
+    "constraints",
+    "json",
+    "type",
+    "check",
+    "rule",
+    "validation"
+  ],
+  "author": "Gokmen Goksel",
+  "license": "MIT",
+  "devDependencies": {
+    "coffee-script": "latest",
+    "mocha": "^2.3.3",
+    "should": "^7.1.1"
+  }
+}
