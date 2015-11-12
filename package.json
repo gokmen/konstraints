@@ -1,6 +1,6 @@
 {
   "name": "konstraints",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Constraints checker for given object and rules along with it.",
   "main": "dist/konstraints.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "github.com/gokmen/konstraints"
+    "url": "https://github.com/gokmen/konstraints.git"
   },
   "keywords": [
     "typecheck",
