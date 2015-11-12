@@ -1,6 +1,6 @@
 {
   "name": "konstraints",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Constraints checker for given object and rules along with it.",
   "main": "dist/konstraints.js",
   "scripts": {
@@ -21,6 +21,7 @@
   ],
   "author": "Gokmen Goksel",
   "license": "MIT",
+  "tonicExampleFilename": "example/tonic.js",
   "devDependencies": {
     "coffee-script": "latest",
     "mocha": "^2.3.3",

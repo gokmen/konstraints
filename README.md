@@ -51,6 +51,8 @@ will generate following output:
 
 ```
 
+You can also try it in your browser from https://tonicdev.com/npm/konstraints
+
 Test
 ----
 
