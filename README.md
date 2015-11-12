@@ -7,36 +7,36 @@ After doing `npm i konstraints`;
 
 ```coffee
 
-  konstraints = require 'konstraints'
+konstraints = require 'konstraints'
 
-  target  =
-    foo   :
-      bar : 42
-    baz   :
-      one : 1
-      two : 2
+target  =
+  foo   :
+    bar : 42
+  baz   :
+    one : 1
+    two : 2
 
-  rules   = [
-    { $typeof: 'object' }
-    { $keys: [ 'foo', 'baz' ] }
-    { 'foo': { $keys: [ 'bar' ] } }
-    {
-      'foo.bar': [
-        { $eq: 42 }
-        { $lt: 44 }
-      ]
-    }
-    { 'baz': { $length: 2 } }
-    { 'baz.*': { $gt: 0 } }
-  ]
+rules   = [
+  { $typeof: 'object' }
+  { $keys: [ 'foo', 'baz' ] }
+  { 'foo': { $keys: [ 'bar' ] } }
+  {
+    'foo.bar': [
+      { $eq: 42 }
+      { $lt: 44 }
+    ]
+  }
+  { 'baz': { $length: 2 } }
+  { 'baz.*': { $gt: 0 } }
+]
 
-  res = konstraints target, rules, log: yes
+res = konstraints target, rules, log: yes
 
 ```
 
 will generate following output:
 
-```bash
+```
 
    ✓ type of given object is 'object'
    ✓ all keys of given object are allowed
