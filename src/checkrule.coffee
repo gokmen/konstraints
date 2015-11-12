@@ -9,6 +9,10 @@ module.exports = checkRule = (rule, target, custom) ->
   # we need a `path` to execute rule on it
   path = custom?.path ? getFirstKey rule
 
+  # is rule optional? check by looking existence
+  # of question mark in the rule path
+  optional = !!(path.indexOf '?') > -1
+
   # this is the function that we run on the target
   # it needs to start with $ sign
   func = custom?.func ? (/(\$\w+)/g.exec path)?[0]
@@ -95,6 +99,9 @@ module.exports = checkRule = (rule, target, custom) ->
       # if there is a result to return
       return res  if res.length > 0
 
+    # if rule is optional we need to remove '?' from path
+    rule.path = rule.path.replace '?', ''  if optional
+
     # get the data for given rule.path
     # this only valid for arrays and objects
     data = getAt target, rule.path
@@ -102,7 +109,20 @@ module.exports = checkRule = (rule, target, custom) ->
     # based on the rule data might not be there
     # which is also counting as an error
     unless data?
-      res = [[ no, "no data found at #{rule.path}", { rule, data, target } ]]
+
+      details = { rule, data, target }
+
+      # if rule is optional then we can ignore no data issue
+      # since it's not exists we don't need to worry about it
+      if optional
+        res = [[ yes,
+          "no optional data found at #{rule.path}, skipping.", details
+        ]]
+      else
+        res = [[ no,
+          "no data found at #{rule.path}", details
+        ]]
+
       return if custom? then res[0] else res
 
     # and if we have a data from that path
