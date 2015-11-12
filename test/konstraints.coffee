@@ -85,12 +85,10 @@ describe 'Check optional rules', ->
     baz      :
       one    : 1
       two    : 2
-      pi     : 3.14
 
   rules   = [
     { 'baz': { $length: { $lte: 4 } } }
     { 'baz.fourth?': { $gt: 0 } }
-    { 'baz.pi': { $eq: 3.14 } }
   ]
 
 
@@ -107,3 +105,17 @@ describe 'Check optional rules', ->
     result = konstraints target, rules, options
     result.passed.should.be.true()
 
+
+  it "should not pass if a non-optional rule data is not provided", ->
+
+    rules.push { 'baz.pi': { $eq: 3.14 } }
+
+    result = konstraints target, rules, options
+    result.passed.should.be.false()
+
+  it "should pass if a non-optional rule data is provided", ->
+
+    target.baz.pi = 3.14
+
+    result = konstraints target, rules, options
+    result.passed.should.be.true()
