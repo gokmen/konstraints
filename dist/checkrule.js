@@ -9,7 +9,7 @@
   module.exports = checkRule = function(rule, target, custom) {
     var $rule, _res, _rkey, _target, base, cpath, data, details, func, i, key, len, message, optional, path, r, ref1, ref2, ref3, ref4, ref5, ref6, res, rest, rkey, val;
     path = (ref1 = custom != null ? custom.path : void 0) != null ? ref1 : getFirstKey(rule);
-    optional = !!(path.indexOf('?')) > -1;
+    optional = (path.indexOf('?')) > -1;
     func = (ref2 = custom != null ? custom.func : void 0) != null ? ref2 : (ref3 = /(\$\w+)/g.exec(path)) != null ? ref3[0] : void 0;
     val = custom != null ? custom.val : void 0;
     if (!func) {

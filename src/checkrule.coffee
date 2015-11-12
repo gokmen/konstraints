@@ -11,7 +11,7 @@ module.exports = checkRule = (rule, target, custom) ->
 
   # is rule optional? check by looking existence
   # of question mark in the rule path
-  optional = !!(path.indexOf '?') > -1
+  optional = (path.indexOf '?') > -1
 
   # this is the function that we run on the target
   # it needs to start with $ sign
