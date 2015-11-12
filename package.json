@@ -1,8 +1,8 @@
 {
   "name": "konstraints",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Constraints checker for given object and rules along with it.",
-  "main": "src/konstraints.coffee",
+  "main": "dist/konstraints.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha"
   },
