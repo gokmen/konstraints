@@ -1,9 +1,9 @@
 konstraints = require '../src/konstraints.coffee'
 should      = require 'should'
 
-describe "Initial requirements", ->
+options = log: yes, logDefaults: yes, checkAll: yes
 
-  options = log: yes, logDefaults: yes, checkAll: yes
+describe "Initial requirements", ->
 
   it "konstraints loaded", ->
     konstraints.should.exists
@@ -75,3 +75,35 @@ describe "Initial requirements", ->
 
     result = konstraints target, rules, options
     result.passed.should.be.true()
+
+
+describe 'Check optional rules', ->
+
+  target     =
+    foo      :
+      bar    : 42
+    baz      :
+      one    : 1
+      two    : 2
+      pi     : 3.14
+
+  rules   = [
+    { 'baz': { $length: { $lte: 4 } } }
+    { 'baz.fourth?': { $gt: 0 } }
+    { 'baz.pi': { $eq: 3.14 } }
+  ]
+
+
+  it "should pass if an optional rule data is not provided", ->
+
+    result = konstraints target, rules, options
+    result.passed.should.be.true()
+
+
+  it "should pass if an optional rule data is provided", ->
+
+    target.baz.fourth = 1
+
+    result = konstraints target, rules, options
+    result.passed.should.be.true()
+
