@@ -1,5 +1,8 @@
-Konstraints [![Build Status](https://travis-ci.org/gokmen/konstraints.svg?branch=master)](https://travis-ci.org/gokmen/konstraints)
+Konstraints 
 -----------
+
+[![Build Status](https://travis-ci.org/gokmen/konstraints.svg?branch=master)](https://travis-ci.org/gokmen/konstraints)
+[![NPM version](https://img.shields.io/npm/v/konstraints.svg?style=flat-square)](https://www.npmjs.com/package/konstraints)
 
 Constraint checker for given target by provided rules. With `konstraints` you can make sure that your objects are fits with in your requirements.
 
