@@ -1,6 +1,6 @@
 {
   "name": "konstraints",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Constraints checker for given object and rules along with it.",
   "main": "dist/konstraints.js",
   "scripts": {
