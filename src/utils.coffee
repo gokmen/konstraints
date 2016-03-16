@@ -22,7 +22,8 @@ log = (rest..., color) ->
       rest.push colors.reset
     console.log rest...
 
-keys = (o) -> Object.keys o
+keys = (o) ->
+  Object.keys o  if typeof o is 'object'
 
 rtrim = (s, c) ->
   return ''  unless s or c
@@ -35,7 +36,7 @@ flatten = (arr) ->
   arr.reduce ((a, b) -> a.concat b), []
 
 getFirstKey = (obj) ->
-  (Object.keys obj)[0]
+  (keys obj)?[0]
 
 getAt = (ref, path) ->
   path = path.split? '.' or path.slice()

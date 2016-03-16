@@ -20,7 +20,7 @@ module.exports = settle = (rule, data, _target) ->
       if typeof rule.val is 'object'
         rule.func = getFirstKey rule.val
         rule.val  = rule.val[rule.func]
-        return settle rule, (keys data).length, "#{_target}.length"
+        return settle rule, (keys data)?.length, "#{_target}.length"
       data    = keys data  if typeof data is 'object'
       res     = data.length is rule.val
       data    = data.length

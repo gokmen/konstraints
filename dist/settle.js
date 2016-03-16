@@ -8,7 +8,7 @@
   module.exports = settle = function(rule, data, _target) {
     var res;
     res = (function() {
-      var i, key, len, message, ref1;
+      var i, key, len, message, ref1, ref2;
       switch (rule.func) {
         case '$typeof':
           if (rule.val === 'array') {
@@ -22,7 +22,7 @@
           if (typeof rule.val === 'object') {
             rule.func = getFirstKey(rule.val);
             rule.val = rule.val[rule.func];
-            return settle(rule, (keys(data)).length, _target + ".length");
+            return settle(rule, (ref1 = keys(data)) != null ? ref1.length : void 0, _target + ".length");
           }
           if (typeof data === 'object') {
             data = keys(data);
@@ -55,9 +55,9 @@
           if (typeof data !== 'object') {
             return [false, "key '" + key + "' is not an object"];
           }
-          ref1 = keys(data);
-          for (i = 0, len = ref1.length; i < len; i++) {
-            key = ref1[i];
+          ref2 = keys(data);
+          for (i = 0, len = ref2.length; i < len; i++) {
+            key = ref2[i];
             if (indexOf.call(rule.val, key) < 0) {
               data = key;
               return [false, "key '" + key + "' of " + _target + " is not allowed"];

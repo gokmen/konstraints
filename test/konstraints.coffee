@@ -86,7 +86,8 @@ describe 'Check optional rules', ->
       one    : 1
       two    : 2
 
-  rules   = [
+  rules    = [
+    { 'baz': { $typeof: 'object' } }
     { 'baz': { $length: { $lte: 4 } } }
     { 'baz.fourth?': { $gt: 0 } }
   ]
@@ -119,3 +120,10 @@ describe 'Check optional rules', ->
 
     result = konstraints target, rules, options
     result.passed.should.be.true()
+
+  it "should not fail if broken data is provided", ->
+
+    target.baz = 'foo'
+
+    result = konstraints target, rules, options
+    result.passed.should.be.false()

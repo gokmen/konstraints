@@ -33,7 +33,9 @@
   };
 
   keys = function(o) {
-    return Object.keys(o);
+    if (typeof o === 'object') {
+      return Object.keys(o);
+    }
   };
 
   rtrim = function(s, c) {
@@ -62,7 +64,8 @@
   };
 
   getFirstKey = function(obj) {
-    return (Object.keys(obj))[0];
+    var ref1;
+    return (ref1 = keys(obj)) != null ? ref1[0] : void 0;
   };
 
   getAt = function(ref, path) {

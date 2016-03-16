@@ -41,11 +41,17 @@ describe 'utils.getFirstKey', ->
     utils.getFirstKey { foo: 'bar', baz: 42 }
       .should.equal 'foo'
 
+  it 'should not fail if given data is not an object', ->
+    should.not.exist(utils.getFirstKey 'bar')
+
 
 describe 'utils.keys', ->
 
   it 'should return keys of given object', ->
     utils.keys({foo: 42, bar: 'baz'}).should.deepEqual ['foo', 'bar']
+
+  it 'should not fail if given data is not an object', ->
+    should.not.exist(utils.keys 'bar')
 
 
 describe 'utils.stateOf', ->

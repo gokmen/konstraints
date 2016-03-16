@@ -18,14 +18,18 @@
         res = [];
         for (i = 0, len = $rule.length; i < len; i++) {
           r = $rule[i];
-          rkey = getFirstKey(r);
+          if (!(rkey = getFirstKey(r))) {
+            return;
+          }
           if (rkey[0] === '$') {
             res.push(checkRule(r, target, {
               path: path + "." + rkey,
               val: r[rkey]
             }));
           } else {
-            _rkey = getFirstKey(r[rkey]);
+            if (!(_rkey = getFirstKey(r[rkey]))) {
+              return;
+            }
             res.push(checkRule(r, target, {
               path: path + "." + rkey + "." + _rkey,
               val: r[rkey][_rkey]

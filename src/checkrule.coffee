@@ -37,7 +37,7 @@ module.exports = checkRule = (rule, target, custom) ->
       # .. to be able to do that we are checking all
       # rules by calling this function recursively ...
       for r in $rule
-        rkey = getFirstKey r
+        return  unless rkey = getFirstKey r
 
         # following check allows us to check one more
         # depth if it's defined in the ruleset.
@@ -47,7 +47,7 @@ module.exports = checkRule = (rule, target, custom) ->
           }
 
         else
-          _rkey = getFirstKey r[rkey]
+          return  unless _rkey = getFirstKey r[rkey]
           res.push checkRule r, target, {
             path: "#{path}.#{rkey}.#{_rkey}",
             val: r[rkey][_rkey]
