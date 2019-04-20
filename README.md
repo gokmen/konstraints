@@ -1,3 +1,7 @@
+**Archived project. No maintenance.**
+
+This project is not maintained anymore and is archived. Feel free to fork and make your own changes if needed.
+
 Konstraints 
 -----------
 
@@ -60,4 +64,3 @@ Test
 ----
 
 Run `npm test` to run tests, you can also check `test/konstraint.coffee` for more example.
-
